@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ASPX.Clients
-{
-
-
-    public partial class Delete
-    {
+namespace ASPX.Clients {
+    
+    
+    public partial class Edit {
     }
 }
