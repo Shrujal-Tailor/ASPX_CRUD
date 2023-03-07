@@ -1,7 +1,16 @@
-﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="ASPX.Clients.Create" %>
+﻿<%@ Page Title="" Language="C#" enableEventValidation="false"  MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="ASPX.Clients.Create" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <h2>New Client</h2>
+
+       <% if (errorMessage.Length > 0)
+      { %>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong><% errorMessage.ToString();  %></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+  <%  } %>
+
     <form method="post">
         <div class="row mb-3">
             <asp:Label ID="lbName" CssClass="col-sm-3 col-form-label" runat="server" Text="Name"></asp:Label>

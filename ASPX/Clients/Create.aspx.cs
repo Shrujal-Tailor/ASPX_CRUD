@@ -25,28 +25,34 @@ namespace ASPX.Clients
         {
             try
             {
+                
                 string name = txtName.Text;
                 string email = txtEmail.Text;
                 string password = txtPassword.Text;
                 string phone = txtPhone.Text;
                 string address = txtAddress.Text;
+                string StatementType = "Insert";
 
                 string ConnectionString = ConfigurationManager.ConnectionStrings["dbConn"].ToString();
-                SqlConnection conn = new SqlConnection(ConnectionString);
-                conn.Open();
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spclients_set";
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "spclients_set";
+                        cmd.Parameters.Add("name", SqlDbType.VarChar).Value = name;
+                        cmd.Parameters.Add("email", SqlDbType.VarChar).Value = email;
+                        cmd.Parameters.Add("password", SqlDbType.VarChar).Value = password;
+                        cmd.Parameters.Add("phone", SqlDbType.VarChar).Value = phone;
+                        cmd.Parameters.Add("address", SqlDbType.VarChar).Value = address;
+                        cmd.Parameters.Add("StatementType", SqlDbType.VarChar).Value = StatementType;
 
-                cmd.Parameters.Add("name", SqlDbType.VarChar).Value = name;
-                cmd.Parameters.Add("email", SqlDbType.VarChar).Value = email;
-                cmd.Parameters.Add("password", SqlDbType.VarChar).Value = password;
-                cmd.Parameters.Add("phone", SqlDbType.VarChar).Value = phone;
-                cmd.Parameters.Add("address", SqlDbType.VarChar).Value = address;
-
-                cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
 
                 Response.Redirect("/Clients/Default");
             }

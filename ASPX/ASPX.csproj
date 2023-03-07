@@ -109,7 +109,7 @@
     </Content>
     <Content Include="Clients\Create.aspx" />
     <Content Include="Clients\Default.aspx" />
-    <Content Include="Clients\Edit.aspx" />
+    <Content Include="Clients\Update.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -218,12 +218,12 @@
     <Compile Include="Clients\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Clients\Edit.aspx.cs">
-      <DependentUpon>Edit.aspx</DependentUpon>
+    <Compile Include="Clients\Update.aspx.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Clients\Edit.aspx.designer.cs">
-      <DependentUpon>Edit.aspx</DependentUpon>
+    <Compile Include="Clients\Update.aspx.designer.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
