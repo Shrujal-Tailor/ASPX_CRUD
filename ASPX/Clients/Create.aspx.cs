@@ -16,6 +16,7 @@ namespace ASPX.Clients
     public partial class Create : System.Web.UI.Page
     {
         public String errorMessage = "";
+        Password EncryptData = new Password();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -45,7 +46,7 @@ namespace ASPX.Clients
 
                         cmd.Parameters.Add("name", SqlDbType.VarChar).Value = name;
                         cmd.Parameters.Add("email", SqlDbType.VarChar).Value = email;
-                        cmd.Parameters.Add("password", SqlDbType.VarChar).Value = password;
+                        cmd.Parameters.Add("password", SqlDbType.VarChar).Value = EncryptData.Encode(password);
                         cmd.Parameters.Add("phone", SqlDbType.VarChar).Value = phone;
                         cmd.Parameters.Add("address", SqlDbType.VarChar).Value = address;
                         cmd.Parameters.Add("StatementType", SqlDbType.VarChar).Value = StatementType;
@@ -53,7 +54,7 @@ namespace ASPX.Clients
                         cmd.ExecuteNonQuery();
                     }
                 }
-
+                
                 Response.Redirect("/Clients/Default");
             }
             catch(Exception ex)

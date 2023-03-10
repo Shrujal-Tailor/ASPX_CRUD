@@ -14,6 +14,7 @@ namespace ASPX.Clients
 	public partial class Edit : System.Web.UI.Page
 	{
         public String errorMessage = "";
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -76,7 +77,7 @@ namespace ASPX.Clients
                         cmd.ExecuteNonQuery();
                     }
                 }
-
+                
                 Response.Redirect("/Clients/Default");
             }
             catch (Exception ex)

@@ -5,7 +5,7 @@
      <% if (errorMessage.Length > 0)
       { %>
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong><% errorMessage.ToString();  %></strong>
+                    <strong><%= errorMessage  %></strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
   <%  } %>
